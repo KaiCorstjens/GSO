@@ -5,20 +5,34 @@
  */
 package fontys.time;
 
+import java.util.Iterator;
+
 /**
  *
  * @author Niek
  */
 public class Contact {
+
     private String name;
-    
-    public Contact(String Name)
-    {
-        this.name=Name;
+
+    public Contact(String Name) {
+        this.name = Name;
     }
-    
-    public String getName()
-    {
+
+    public String getName() {
         return name;
     }
+
+    public boolean addAppointment(Appointment a) {
+        return false;
+    }
+
+    public boolean removeAppointment(Appointment a) {
+        return false;
+    }
+
+    public Iterator<Appointment> appointments() {
+        return null;
+    }
+
 }
