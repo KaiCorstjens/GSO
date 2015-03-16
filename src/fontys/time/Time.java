@@ -4,6 +4,10 @@
  */
 package fontys.time;
 
+import fontys.time.DayInWeek;
+import fontys.time.DayInWeek;
+import fontys.time.ITime;
+import fontys.time.ITime;
 import java.util.GregorianCalendar;
 
 /**
@@ -27,11 +31,11 @@ public class Time implements ITime {
      * @param h 0≤h≤23
      * @param min 0≤m≤59
      */
-    // Changed if m <0 || m >59 to min < 0 || min>59
     public Time(int y, int m, int d, int h, int min) {
         if (m < 1 || m > 12) {
             throw new IllegalArgumentException("month must be within 1..12");
         }
+      
         if (d < 1 || d > 31) {
             throw new IllegalArgumentException("day must be within 1..31");
         }
@@ -41,7 +45,7 @@ public class Time implements ITime {
         if (min < 0 || min > 59) {
             throw new IllegalArgumentException("minutes must be within 0..59");
         }
-        
+        //bij min stond m waardoor de maanden en minuten omwisselde
         gc = new GregorianCalendar(y, m , d, h, min);
     }
 
@@ -76,10 +80,11 @@ public class Time implements ITime {
     public int getYear() {
         return gc.get(GregorianCalendar.YEAR);
     }
-    // removed +1
+
     @Override
     public int getMonth() {
-        return gc.get(GregorianCalendar.MONTH);
+        //hier stond +1 achter
+        return gc.get(GregorianCalendar.MONTH) ;
     }
 
     @Override
@@ -96,24 +101,25 @@ public class Time implements ITime {
     public int getMinutes() {
         return gc.get(GregorianCalendar.MINUTE);
     }
-    // changed gc.add(Gre....) to this.gc.add(Gre....). changed return time to return this.
+
     @Override
     public ITime plus(int minutes) {
-        //Time time = new Time(this);
-        gc.add(GregorianCalendar.MINUTE, minutes);
-        
+        //hier werd een nieuw time object aangemaakt wat niet nodig was
+        this.gc.add(GregorianCalendar.MINUTE, minutes);
         return this;
     }
-    // Changed time.gc.compareTo(gc) to time.gc.compareTo(this.gc).
+
     @Override
     public int compareTo(ITime t) {
         Time time = (Time) t;
-        return time.gc.compareTo(this.gc);
+        //compare de gc van  dit object met het bovenstaande gemaakte object
+        return this.gc.compareTo(time.gc);
     }
-    // Removed a zero
+
     @Override
     public int difference(ITime time) {
         Time t = (Time) time;
+        //hier stond een 0 teveel
         return (int) ((this.gc.getTimeInMillis() - t.gc.getTimeInMillis()) / 60000);
     }
 }
