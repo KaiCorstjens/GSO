@@ -5,6 +5,7 @@
  */
 package fontys.time;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -14,9 +15,11 @@ import java.util.Iterator;
 public class Contact {
 
     private String name;
+    private ArrayList<Appointment> appointments;
 
     public Contact(String Name) {
         this.name = Name;
+        appointments = new ArrayList();
     }
 
     public String getName() {
@@ -24,15 +27,34 @@ public class Contact {
     }
 
     public boolean addAppointment(Appointment a) {
-        return false;
+        if (appointments.add(a)) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     public boolean removeAppointment(Appointment a) {
+        if (appointments != null) {
+            for (Appointment ap : appointments) {
+                if (ap.equals(a)) {
+                    appointments.remove(a);
+                    return true;
+                } else {
+                    System.out.println("Appartement bestaat niet");
+                    return false;
+                }
+            }
+        } else {
+            System.out.println("Lijst is leeg");
+            return false;
+        }
         return false;
     }
 
-    public Iterator<Appointment> appointments() {
-        return null;
+    public ArrayList<Appointment> appointments() {
+        return appointments;
     }
 
 }
