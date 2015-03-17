@@ -123,9 +123,9 @@ public class TimeTest {
     @Test
     public void TestcompareTo() {
         timeCompare = new Time(2014, 04, 05, 20, 10);
-        assertEquals(-1, time.compareTo(timeCompare));
-        timeCompare = new Time(2016, 04, 05, 20, 10);
         assertEquals(1, time.compareTo(timeCompare));
+        timeCompare = new Time(2016, 04, 05, 20, 10);
+        assertEquals(-1, time.compareTo(timeCompare));
         timeCompare = new Time(2015, 05, 05, 13, 00);
         assertEquals(0, time.compareTo(timeCompare));
     }

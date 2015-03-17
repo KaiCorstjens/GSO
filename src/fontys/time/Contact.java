@@ -16,16 +16,29 @@ public class Contact {
 
     private String name;
     private ArrayList<Appointment> appointments;
-
+    
+/**
+ * Constructor of the Contact-class
+ * @param Name  Name of the new contact
+ */
     public Contact(String Name) {
         this.name = Name;
         appointments = new ArrayList();
     }
-
+    
+/**
+ * get-method to return the name of the contact
+ * @return String with the name of the contact
+ */
     public String getName() {
         return name;
     }
-
+    
+/**
+ * Method to add an appointment.
+ * @param a Appointment to be added
+ * @return True if appointment was added correctly, false if otherwise
+ */
     public boolean addAppointment(Appointment a) {
         if (appointments.add(a)) {
             return true;
@@ -35,6 +48,11 @@ public class Contact {
 
     }
 
+    /**
+     * Method to remove an appointment
+     * @param a Appointment to be removed
+     * @return True if appointment was removed correctly, false if otherwise
+     */
     public boolean removeAppointment(Appointment a) {
         if (appointments != null) {
             for (Appointment ap : appointments) {
@@ -53,6 +71,10 @@ public class Contact {
         return false;
     }
 
+    /**
+     * Get-method to get all appointments from this contact
+     * @return Return an ArrayList with all the appointments
+     */
     public ArrayList<Appointment> appointments() {
         return appointments;
     }
