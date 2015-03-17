@@ -6,13 +6,15 @@ package fontys.time;
 
 import fontys.time.DayInWeek;
 import fontys.time.DayInWeek;
+import fontys.time.DayInWeek;
+import fontys.time.ITime;
 import fontys.time.ITime;
 import fontys.time.ITime;
 import java.util.GregorianCalendar;
 
 /**
  *
- * @author Frank Peeters, Nico Kuijpers
+ * @author Frank Peeters, Nico Kuijpers, Niek van den Broek
  * 
  * LET OP: De klasse Time bevat enkele fouten.
  * 
@@ -116,11 +118,9 @@ public class Time implements ITime {
         // Will return 1 if the givenTime is later than ownTime. Will return -1 if the givenTime is earlier than ownTime.
         //return time.gc.compareTo(this.gc);
         // later.compareTo(earlier)==1
-        // earlier.compareTo(later)==-1
-        
-        //return
+        // earlier.compareTo(later)==-1  
         //compare de gc van  dit object met het bovenstaande gemaakte object
-        return this.gc.compareTo(time.gc);
+   return this.gc.compareTo(time.gc);
     }
 
     @Override
